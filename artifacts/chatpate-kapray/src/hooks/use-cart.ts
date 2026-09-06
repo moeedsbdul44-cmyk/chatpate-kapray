@@ -9,7 +9,7 @@ export function useCart() {
     try { return JSON.parse(localStorage.getItem(KEY) || '[]') as CartLine[]; } catch { return []; }
   });
   useEffect(() => {
-  localStorage.setItem(KEY, JSON.stringify(items));
+   localStorage.setItem(KEY, JSON.stringify(items));
   }, [items]);
   useEffect(() => {
     const sync = () => {
