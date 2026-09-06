@@ -8,7 +8,9 @@ export function useCart() {
   const [items, setItems] = useState<CartLine[]>(() => {
     try { return JSON.parse(localStorage.getItem(KEY) || '[]') as CartLine[]; } catch { return []; }
   });
-  useEffect(() => localStorage.setItem(KEY, JSON.stringify(items)), [items]);
+  useEffect(() => {
+  localStorage.setItem(KEY, JSON.stringify(items));
+  }, [items]);
   useEffect(() => {
     const sync = () => {
       try { setItems(JSON.parse(localStorage.getItem(KEY) || '[]') as CartLine[]); } catch { /* keep current cart */ }
