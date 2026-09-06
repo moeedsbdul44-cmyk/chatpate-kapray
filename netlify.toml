@@ -1,0 +1,8 @@
+[build]
+  command = "PORT=5173 BASE_PATH=/ pnpm --filter @workspace/chatpate-kapray run build"
+  publish = "artifacts/chatpate-kapray/dist/public"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
