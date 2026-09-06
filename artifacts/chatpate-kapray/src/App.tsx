@@ -52,7 +52,8 @@ function NotFound() { return <Shell><section className="mx-auto flex min-h-[65vh
 
 function Router() {
   const [location] = useLocation();
-  useEffect(() => window.scrollTo({ top: 0, behavior: 'smooth' }), [location]);
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });}, [location]);
   return <ErrorBoundary resetKey={location}><Switch><Route path="/" component={Home}/><Route path="/shop" component={Shop}/><Route path="/product/:slug" component={ProductPage}/><Route path="/cart" component={Cart}/><Route path="/about" component={About}/><Route path="/contact" component={Contact}/><Route component={NotFound}/></Switch></ErrorBoundary>;
 }
 
